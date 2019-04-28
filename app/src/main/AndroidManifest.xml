@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pramod.consultency.com.users">
+
+
+
+
+
+    <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION/" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.WRITE_PROFILE" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.DashBoard"
+            android:label="@string/title_activity_dash_board"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.Setting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Reset_password"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activities.Login"/>
+        <activity
+            android:name=".activities.About"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Share"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Condition"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".locations.MapsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Chat"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Notification"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.InterView_Schedule"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Registration"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activities.Login"/>
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <activity
+            android:name=".activities.Feeedback"
+            android:screenOrientation="portrait" />
+        <activity android:name=".fragement.Account_Profile" />
+        <activity android:name=".fragement.Document_View" />
+        <activity android:name=".fragement.Password_Change"></activity>
+
+
+
+    </application>
+
+</manifest>

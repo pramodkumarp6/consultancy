@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "200458970892",
+    "firebase_url": "https://consultancy-b906c.firebaseio.com",
+    "project_id": "consultancy-b906c",
+    "storage_bucket": "consultancy-b906c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200458970892:android:08ab0bdf29f7d258",
+        "android_client_info": {
+          "package_name": "pramod.consultency.com.users"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "200458970892-1ecb2mv2ddfp73000grgt9iqk7rsah0k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pramod.consultency.com.users",
+            "certificate_hash": "d3d78917861bb6c1743cfa0c11cdd9821c63df33"
+          }
+        },
+        {
+          "client_id": "200458970892-an7qi92jprqivpgnlr9d3e4am6p9n2gj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSabK3yDbkbHxEgdDvQ3iI_umxwfb0ENg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200458970892-an7qi92jprqivpgnlr9d3e4am6p9n2gj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
