@@ -1,4 +1,4 @@
-import 'package:consultancy/home_screen.dart';
+import 'package:consultancy/views/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,14 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-
         title: 'Flutter Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.green,
-      ),
-      home: const HomeScreen()
-    );
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        home: const Login());
   }
 }
-
