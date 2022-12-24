@@ -11,7 +11,7 @@ class _MyHeaderState extends State<MyHeader> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      color: Colors.purple,
       width: double.infinity,
       height: 200,
       padding: const EdgeInsets.only(top: 20.0),
@@ -20,7 +20,7 @@ class _MyHeaderState extends State<MyHeader> {
         children: [
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            height: 80,
+            height: 70,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
