@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -11,7 +13,7 @@ class NetworkApiService extends BaseApiService {
     dynamic responseJson;
     try {
       final response =
-          await http.get(Uri.parse(url)).timeout(Duration(seconds: 10));
+          await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
     } on SocketException {
       throw FetchDataException("InterNet Exception");
     }
@@ -19,8 +21,15 @@ class NetworkApiService extends BaseApiService {
   }
 
   @override
-  Future getPostApiResponse(String url, data) {
-    throw UnimplementedError();
+  Future getPostApiResponse(String url, dynamic data) async {
+    dynamic responseJson;
+    try {
+      final response =
+          await http.post(Uri.parse(url)).timeout(const Duration(seconds: 10));
+    } on SocketException {
+      throw FetchDataException("InterNet Exception");
+    }
+    return responseJson;
   }
 
   dynamic returnResponse(http.Response response) {
@@ -29,27 +38,14 @@ class NetworkApiService extends BaseApiService {
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
 
-        case 400:
+      case 400:
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
-        case 404:
+      case 404:
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
       default:
         throw FetchDataException('Error' + response.statusCode.toString());
-
-
-
-      default:
-        throw FetchDataException('Error' + response.statusCode.toString());
-
-
-
-      default:
-        throw FetchDataException('Error' + response.statusCode.toString());
-
-      
-
     }
   }
 }

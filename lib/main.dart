@@ -1,4 +1,5 @@
-import 'package:consultancy/views/login/login_screen.dart';
+import 'package:consultancy/utils/routes/routes.dart';
+import 'package:consultancy/utils/routes/routes_names.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,11 +13,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
-        home: const Login());
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      initialRoute: RoutesName.login,
+      onGenerateRoute: Routes.generateRoute,
+    );
   }
 }
+
+
+
+
+
+/*return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => AuthViewModel())],*/
