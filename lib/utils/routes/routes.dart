@@ -2,9 +2,10 @@
 
 import 'package:consultancy/utils/routes/routes_names.dart';
 import 'package:consultancy/views/home/home_screen.dart';
+import 'package:consultancy/views/home/notification/notifications_screen.dart';
+import 'package:consultancy/views/home/setting/setting_screen.dart';
 import 'package:consultancy/views/login/login_screen.dart';
 import 'package:consultancy/views/register/register_screen.dart';
-import 'package:consultancy/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -21,9 +22,13 @@ class Routes {
         return MaterialPageRoute(
             builder: (BuildContext context) => const HomeScreen());
 
-      // case RoutesName.splash:
-      //   return MaterialPageRoute(
-      //       builder: (BuildContext context) => const SplashScreen());
+      case RoutesName.notification:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const NotificationScreen());
+
+      case RoutesName.notification:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const Setting());
 
       default:
         return MaterialPageRoute(builder: (_) {

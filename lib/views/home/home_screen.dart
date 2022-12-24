@@ -1,6 +1,8 @@
 import 'package:consultancy/views/home/MyHeader.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/routes/routes_names.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -24,7 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
           icon: const Icon(
             Icons.notification_add,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, RoutesName.notification);
+          },
         ),
         PopupMenuButton(
             itemBuilder: (BuildContext context) => [
@@ -108,6 +112,8 @@ enum DrawerSections {
   notes,
   settings,
   notifications,
+  // ignore: constant_identifier_names
   privacy_policy,
+  // ignore: constant_identifier_names
   send_feedback,
 }

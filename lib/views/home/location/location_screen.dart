@@ -12,6 +12,11 @@ class Location extends StatefulWidget {
 class _LocationState extends State<Location> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        title: const Text("Location"),
+      ),
+    );
   }
 }
