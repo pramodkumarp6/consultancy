@@ -13,6 +13,7 @@ class _SettingState extends State<Setting> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
+        title: const Text("Setting"),
       ),
     );
   }

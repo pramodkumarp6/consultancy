@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class UserDetails extends StatefulWidget {
@@ -10,6 +11,13 @@ class UserDetails extends StatefulWidget {
 class _UserDetailsState extends State<UserDetails> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("UserDetail"),
+      ),
+      body: const Center(
+        child: Text("UserDetails"),
+      ),
+    );
   }
 }
