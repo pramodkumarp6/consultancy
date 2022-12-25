@@ -3,9 +3,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:consultancy/api/BaseApiServicei.dart';
-import 'package:consultancy/api/app_eception.dart';
+
 import 'package:http/http.dart' as http;
+
+import 'BaseApiServicei.dart';
+import 'app_eception.dart';
 
 class NetworkApiService extends BaseApiService {
   @override

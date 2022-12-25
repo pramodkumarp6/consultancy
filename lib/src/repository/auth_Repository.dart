@@ -1,7 +1,9 @@
 // ignore: file_names
-import 'package:consultancy/api/BaseApiServicei.dart';
-import 'package:consultancy/api/NetworkApiService.dart';
-import 'package:consultancy/utils/app_url.dart';
+
+
+import '../api/BaseApiServicei.dart';
+import '../api/NetworkApiService.dart';
+import '../utils/app_url.dart';
 
 class AuthRepository {
   BaseApiService apiService = NetworkApiService();

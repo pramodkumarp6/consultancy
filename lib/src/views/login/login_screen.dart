@@ -1,5 +1,4 @@
 import 'package:consultancy/src/res/components/roundButton.dart';
-import 'package:consultancy/src/utils/routes/routes_names.dart';
 import 'package:consultancy/src/utils/toasty.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +21,15 @@ class _LoginState extends State<Login> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [RoundButton(title: 'Login')],
+        children: [
+          RoundButton(
+            title: 'Login',
+            loading: true,
+            onPress: () {
+              Toasty.toastMessage('Login Success');
+            },
+          )
+        ],
       ),
       // body: Center(
       //   child: InkWell(
