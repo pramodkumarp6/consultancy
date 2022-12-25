@@ -2,6 +2,8 @@ import 'package:consultancy/src/res/components/roundButton.dart';
 import 'package:consultancy/src/utils/toasty.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/routes/routes_names.dart';
+
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
@@ -24,8 +26,10 @@ class _LoginState extends State<Login> {
         children: [
           RoundButton(
             title: 'Login',
-            loading: true,
+            loading: false,
             onPress: () {
+              Navigator.pushNamed(context, RoutesName.home);
+
               Toasty.toastMessage('Login Success');
             },
           )
@@ -34,7 +38,6 @@ class _LoginState extends State<Login> {
       // body: Center(
       //   child: InkWell(
       //     onTap: () {
-      //       Navigator.pushNamed(context, RoutesName.home);
 
       //       Toasty.toastMessage('Login Success');
       //     },
