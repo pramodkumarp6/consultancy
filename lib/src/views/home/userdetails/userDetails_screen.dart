@@ -15,8 +15,11 @@ class _UserDetailsState extends State<UserDetails> {
       appBar: AppBar(
         title: const Text("UserDetail"),
       ),
-      body: const Center(
-        child: Text("UserDetails"),
+      body: Center(
+        child: InkWell(
+          onTap: () {},
+          child: const Text('Click'),
+        ),
       ),
     );
   }

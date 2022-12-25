@@ -1,8 +1,6 @@
-import 'package:consultancy/utils/routes/routes_names.dart';
-import 'package:consultancy/utils/toasty.dart';
-import 'package:consultancy/viewmodel/authViewModel.dart';
+import 'package:consultancy/src/utils/routes/routes_names.dart';
+import 'package:consultancy/src/utils/toasty.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);

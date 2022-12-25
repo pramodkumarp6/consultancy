@@ -1,11 +1,11 @@
 // ignore_for_file: no_duplicate_case_values
 
-import 'package:consultancy/utils/routes/routes_names.dart';
-import 'package:consultancy/views/home/home_screen.dart';
-import 'package:consultancy/views/home/notification/notifications_screen.dart';
-import 'package:consultancy/views/home/setting/setting_screen.dart';
-import 'package:consultancy/views/login/login_screen.dart';
-import 'package:consultancy/views/register/register_screen.dart';
+import 'package:consultancy/src/utils/routes/routes_names.dart';
+import 'package:consultancy/src/views/home/home_screen.dart';
+import 'package:consultancy/src/views/home/notification/notifications_screen.dart';
+import 'package:consultancy/src/views/home/setting/setting_screen.dart';
+import 'package:consultancy/src/views/login/login_screen.dart';
+import 'package:consultancy/src/views/register/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes {

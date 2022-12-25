@@ -10,6 +10,11 @@ class Policy extends StatefulWidget {
 class _PolicyState extends State<Policy> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        title: const Text("Policy"),
+      ),
+    );
   }
 }

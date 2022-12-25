@@ -1,14 +1,15 @@
-import 'package:consultancy/views/home/MyHeader.dart';
-import 'package:consultancy/views/home/profile/Profile_Screen.dart';
-import 'package:consultancy/views/home/sendFeedback/send_feedback.dart';
-import 'package:consultancy/views/home/setting/policy_screen.dart';
-import 'package:consultancy/views/home/setting/setting_screen.dart';
-import 'package:consultancy/views/home/userPasswprdChange/user_password_change.dart';
+import 'package:consultancy/src/views/home/MyHeader.dart';
 import 'package:flutter/material.dart';
 import '../../utils/routes/routes_names.dart';
+
 import 'chat/chat_screen.dart';
 import 'location/location_screen.dart';
 import 'notification/notifications_screen.dart';
+import 'profile/profile_screen.dart';
+import 'sendFeedback/send_feedback.dart';
+import 'setting/policy_screen.dart';
+import 'setting/setting_screen.dart';
+import 'userPasswprdChange/user_password_change.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,13 +20,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   get onSelected => null;
-  var currentPage = DrawerSections.UserProfile;
+  var currentPage = DrawerSections.userProfile;
 
   @override
   Widget build(BuildContext context) {
     var container;
 
-    if (currentPage == DrawerSections.UserProfile) {
+    if (currentPage == DrawerSections.userProfile) {
       container = const Profile();
     } else if (currentPage == DrawerSections.passwordChange) {
       container = const PasswordChange();
@@ -74,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Container(
         child: const Center(
-          child: Text("Home Pages"),
+          child: Text(" Pramod "),
         ),
       ),
       drawer: Drawer(
@@ -90,6 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Widget MyDrawerList() {
     return Container(
       padding: const EdgeInsets.only(
@@ -98,16 +100,16 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           menuItem(1, "UserDetails", Icons.dashboard_outlined,
-              currentPage == DrawerSections.Profile ? true : false),
+              currentPage == DrawerSections.userProfile ? true : false),
           menuItem(2, "UserPasswordChange", Icons.people_alt_outlined,
-              currentPage == DrawerSections.PasswordChange ? true : false),
+              currentPage == DrawerSections.passwordChange ? true : false),
           menuItem(3, "Chat", Icons.chat,
-              currentPage == DrawerSections.Chat ? true : false),
+              currentPage == DrawerSections.chat ? true : false),
           menuItem(4, "Location", Icons.location_city,
-              currentPage == DrawerSections.Location ? true : false),
+              currentPage == DrawerSections.location ? true : false),
           const Divider(),
           menuItem(5, "Settings", Icons.settings_outlined,
-              currentPage == DrawerSections.Settings ? true : false),
+              currentPage == DrawerSections.settings ? true : false),
           menuItem(6, "Notifications", Icons.notifications_outlined,
               currentPage == DrawerSections.notifications ? true : false),
           const Divider(),
@@ -122,12 +124,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget menuItem(int id, String title, IconData icon, bool selected) {
     return Material(
+      color: selected ? Colors.grey[300] : Colors.transparent,
       child: InkWell(
         onTap: () {
           Navigator.pop(context);
           setState(() {
             if (id == 1) {
-              currentPage = DrawerSections.UserProfile;
+              currentPage = DrawerSections.userProfile;
             } else if (id == 2) {
               currentPage = DrawerSections.passwordChange;
             } else if (id == 3) {
@@ -178,19 +181,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
 enum DrawerSections {
   // ignore: constant_identifier_names
-  UserProfile,
+  userProfile,
   passwordChange,
   chat,
   location,
   settings,
   notifications,
-  // ignore: constant_identifier_names
   privacyPolicy,
-  // ignore: constant_identifier_names
   sendFeedback,
-  Profile,
-  Settings,
-  PasswordChange,
-  Chat,
-  Location,
 }

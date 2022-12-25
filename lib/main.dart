@@ -1,5 +1,5 @@
-import 'package:consultancy/utils/routes/routes.dart';
-import 'package:consultancy/utils/routes/routes_names.dart';
+import 'package:consultancy/src/utils/routes/routes.dart';
+import 'package:consultancy/src/utils/routes/routes_names.dart';
 import 'package:flutter/material.dart';
 
 void main() {
