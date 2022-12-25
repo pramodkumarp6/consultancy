@@ -1,3 +1,4 @@
+import 'package:consultancy/src/res/thems/theme_providers.dart';
 import 'package:consultancy/src/utils/routes/routes.dart';
 import 'package:consultancy/src/utils/routes/routes_names.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
       initialRoute: RoutesName.login,
       onGenerateRoute: Routes.generateRoute,

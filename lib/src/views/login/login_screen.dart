@@ -1,3 +1,4 @@
+import 'package:consultancy/src/res/components/roundButton.dart';
 import 'package:consultancy/src/utils/routes/routes_names.dart';
 import 'package:consultancy/src/utils/toasty.dart';
 import 'package:flutter/material.dart';
@@ -18,16 +19,24 @@ class _LoginState extends State<Login> {
         title: const Text('Login'),
         centerTitle: true,
       ),
-      body: Center(
-        child: InkWell(
-          onTap: () {
-            Navigator.pushNamed(context, RoutesName.home);
-
-            Toasty.toastMessage('Login Success');
-          },
-          child: const Text('Click'),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const [RoundButton(title: 'Login')],
       ),
+      // body: Center(
+      //   child: InkWell(
+      //     onTap: () {
+      //       Navigator.pushNamed(context, RoutesName.home);
+
+      //       Toasty.toastMessage('Login Success');
+      //     },
+      //     child: const Text(
+      //       'Hello World',
+      //       style: TextStyle(color: Colors.red),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
