@@ -29,6 +29,11 @@ class _LoginState extends State<Login> {
     passwordFocusNode.dispose();
   }
 
+  void login() {
+    // loading = true
+    Navigator.pushNamed(context, RoutesName.home);
+  }
+
   @override
   Widget build(BuildContext context) {
     // final authViewModel = Provider.of<AuthViewModel>(context);
@@ -70,7 +75,9 @@ class _LoginState extends State<Login> {
                             hint: 'Email',
                             obscureText: false,
                             onValidator: (value) {
-                              return value.isEmpty ? 'enter Email' : null;
+                              return value.isEmpty
+                                  ? 'Enter Email Required'
+                                  : null;
                             }),
                         InputTextField(
                             focusNode: passwordFocusNode,
@@ -79,9 +86,11 @@ class _LoginState extends State<Login> {
                             enable: true,
                             keyBoardType: TextInputType.visiblePassword,
                             hint: 'Password',
-                            obscureText: false,
+                            obscureText: true,
                             onValidator: (value) {
-                              return value.isEmpty ? 'enter Password' : null;
+                              return value.isEmpty
+                                  ? 'Enter Password Required'
+                                  : null;
                             }),
                       ],
                     ),
@@ -109,9 +118,11 @@ class _LoginState extends State<Login> {
                   title: 'Login',
                   loading: false,
                   onPress: () {
-                    Navigator.pushNamed(context, RoutesName.home);
+                    if (formkey.currentState!.validate()) {
+                      login();
+                    }
 
-                    Toasty.toastMessage('Login Success');
+                    Toasty.toastMessage('Email & Password InvaLid');
                   },
                 ),
                 SizedBox(height: hight * .03),

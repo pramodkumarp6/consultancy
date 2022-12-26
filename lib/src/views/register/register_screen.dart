@@ -12,8 +12,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
-        title: (const Text('Register')),
+        elevation: 0,
       ),
       body: Center(
         child: InkWell(
