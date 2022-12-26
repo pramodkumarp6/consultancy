@@ -10,6 +10,9 @@ class ForgetUser extends StatefulWidget {
 class _ForgetUserState extends State<ForgetUser> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.purple, title: const Text('ForgetUser')),
+    );
   }
 }

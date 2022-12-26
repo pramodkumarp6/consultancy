@@ -1,6 +1,8 @@
 // ignore_for_file: no_duplicate_case_values
 
 import 'package:consultancy/src/utils/routes/routes_names.dart';
+import 'package:consultancy/src/views/forgetuser/forgetUser_screen.dart';
+import 'package:consultancy/src/views/forgetuser/otp_send_verify.dart';
 import 'package:consultancy/src/views/home/home_screen.dart';
 import 'package:consultancy/src/views/home/notification/notifications_screen.dart';
 import 'package:consultancy/src/views/home/setting/setting_screen.dart';
@@ -29,6 +31,14 @@ class Routes {
       case RoutesName.notification:
         return MaterialPageRoute(
             builder: (BuildContext context) => const Setting());
+
+      case RoutesName.forgetUser:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const ForgetUser());
+
+      case RoutesName.otpSend:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const OtpSendVerify());
 
       default:
         return MaterialPageRoute(builder: (_) {

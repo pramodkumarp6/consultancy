@@ -10,6 +10,11 @@ class OtpSendVerify extends StatefulWidget {
 class _OtpSendVerifyState extends State<OtpSendVerify> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.purple,
+      appBar: AppBar(
+        title: const Text('OtpSend'),
+      ),
+    );
   }
 }
