@@ -13,11 +13,22 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final formkey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final emailFocusNode = FocusNode();
 
   final passwordController = TextEditingController();
   final passwordFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    emailFocusNode.dispose();
+    passwordController.dispose();
+    passwordFocusNode.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     // final authViewModel = Provider.of<AuthViewModel>(context);
@@ -48,7 +59,7 @@ class _LoginState extends State<Login> {
                 myController: passwordController,
                 onFieldSubmittedValue: (value) {},
                 enable: true,
-                keyBoardType: TextInputType.emailAddress,
+                keyBoardType: TextInputType.visiblePassword,
                 hint: 'Password',
                 obscureText: false,
                 onValidator: (value) {
