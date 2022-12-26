@@ -35,10 +35,15 @@ class InputTextField extends StatelessWidget {
         obscureText: obscureText,
         validator: onValidator,
         keyboardType: keyBoardType,
-        decoration: const InputDecoration(
-            contentPadding: EdgeInsets.all(10),
-            border: OutlineInputBorder(
+        decoration: InputDecoration(
+            hintText: hint,
+            // hintStyle: Theme.of(context.textTheme.bo),
+            contentPadding: const EdgeInsets.all(10),
+            border: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.red),
+                borderRadius: BorderRadius.all(Radius.circular(8))),
+            focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.purpleAccent),
                 borderRadius: BorderRadius.all(Radius.circular(8)))),
       ),
     );
