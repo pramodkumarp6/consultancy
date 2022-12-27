@@ -8,6 +8,10 @@ class ForgetUser extends StatefulWidget {
 }
 
 class _ForgetUserState extends State<ForgetUser> {
+  final formkey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+
+  final emailFocusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
