@@ -41,7 +41,8 @@ class _LoginState extends State<Login> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
-        centerTitle: true,
+        backgroundColor: Colors.purple,
+        centerTitle: false,
       ),
       body: SafeArea(
         child: Padding(

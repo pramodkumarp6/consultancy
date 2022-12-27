@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../res/components/roundButton.dart';
+import '../../utils/routes/routes_names.dart';
+import '../../utils/toasty.dart';
+
 class Complete extends StatefulWidget {
   const Complete({Key? key}) : super(key: key);
 
@@ -10,6 +14,42 @@ class Complete extends StatefulWidget {
 class _CompleteState extends State<Complete> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final hight = MediaQuery.of(context).size.height * 1;
+
+    return Scaffold(
+      appBar:
+          AppBar(backgroundColor: Colors.purple, title: const Text("Complete")),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: hight * .1),
+                const Text(
+                  'Update Password',
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.redAccent,
+                  ),
+                ),
+                SizedBox(height: hight * .60),
+                RoundButton(
+                  title: 'Complete',
+                  loading: false,
+                  onPress: () {
+                    Navigator.pushNamed(context, RoutesName.login);
+
+                    // Toasty.toastMessage('Email & Password InvaLid');
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

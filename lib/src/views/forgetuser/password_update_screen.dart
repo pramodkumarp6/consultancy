@@ -5,26 +5,31 @@ import '../../res/components/roundButton.dart';
 import '../../utils/routes/routes_names.dart';
 import '../../utils/toasty.dart';
 
-class ForgetUser extends StatefulWidget {
-  const ForgetUser({Key? key}) : super(key: key);
+class PasswordUpdate extends StatefulWidget {
+  const PasswordUpdate({Key? key}) : super(key: key);
 
   @override
-  State<ForgetUser> createState() => _ForgetUserState();
+  State<PasswordUpdate> createState() => _PasswordUpdateState();
 }
 
-class _ForgetUserState extends State<ForgetUser> {
+class _PasswordUpdateState extends State<PasswordUpdate> {
   final formkey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final passwordFocusNode = FocusNode();
 
-  final emailFocusNode = FocusNode();
+  final passwordConfirmController = TextEditingController();
+  final passwordConfirmFocusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     final hight = MediaQuery.of(context).size.height * 1;
 
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.purple, title: const Text('ForgetUser')),
-
+        title: const Text('PasswordUpdate'),
+        backgroundColor: Colors.purple,
+        centerTitle: false,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -35,7 +40,7 @@ class _ForgetUserState extends State<ForgetUser> {
               children: [
                 SizedBox(height: hight * .01),
                 const Text(
-                  'Consultancy',
+                  'Update Password',
                   style: TextStyle(
                     fontSize: 25,
                     color: Colors.redAccent,
@@ -49,16 +54,29 @@ class _ForgetUserState extends State<ForgetUser> {
                     child: Column(
                       children: [
                         InputTextField(
-                            focusNode: emailFocusNode,
-                            myController: emailController,
+                            focusNode: passwordFocusNode,
+                            myController: passwordController,
                             onFieldSubmittedValue: (value) {},
                             enable: true,
-                            keyBoardType: TextInputType.emailAddress,
-                            hint: 'Email',
-                            obscureText: false,
+                            keyBoardType: TextInputType.visiblePassword,
+                            hint: 'Old Password',
+                            obscureText: true,
                             onValidator: (value) {
                               return value.isEmpty
-                                  ? 'Enter Email Required'
+                                  ? 'Enter Password Required'
+                                  : null;
+                            }),
+                        InputTextField(
+                            focusNode: passwordConfirmFocusNode,
+                            myController: passwordConfirmController,
+                            onFieldSubmittedValue: (value) {},
+                            enable: true,
+                            keyBoardType: TextInputType.visiblePassword,
+                            hint: 'Confirm Password',
+                            obscureText: true,
+                            onValidator: (value) {
+                              return value.isEmpty
+                                  ? 'Enter PasswordConfirm Required'
                                   : null;
                             }),
                       ],
@@ -68,38 +86,22 @@ class _ForgetUserState extends State<ForgetUser> {
 
                 // ignore: prefer_const_constructors
 
-                SizedBox(height: hight * .5),
+                SizedBox(height: hight * .04),
                 RoundButton(
-                  title: 'Send',
+                  title: 'PasswordUpdate',
                   loading: false,
                   onPress: () {
-                    if (formkey.currentState!.validate()) {
-                      //login();
-
-                      Navigator.pushNamed(context, RoutesName.otpSend);
-                    }
+                    if (formkey.currentState!.validate()) {}
+                    Navigator.pushNamed(context, RoutesName.complete);
 
                     Toasty.toastMessage('Email & Password InvaLid');
                   },
                 ),
-                SizedBox(height: hight * .03),
               ],
             ),
           ),
         ),
       ),
-      // body: Center(
-      //   child: InkWell(
-      //     onTap: () {
-
-      //       Toasty.toastMessage('Login Success');
-      //     },
-      //     child: const Text(
-      //       'Hello World',
-      //       style: TextStyle(color: Colors.red),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }
