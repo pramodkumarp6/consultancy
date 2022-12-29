@@ -1,6 +1,5 @@
 import 'package:consultancy/src/res/components/inputText.dart';
 import 'package:consultancy/src/res/components/roundButton.dart';
-import 'package:consultancy/src/utils/toasty.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -31,11 +30,9 @@ class _LoginState extends State<Login> {
     passwordFocusNode.dispose();
   }
 
-  void login() {
-    // loading = true
-    // Navigator.pushNamed(context, RoutesName.home);
-    //Toasty.snackebar('message', context);
-  }
+  //loading = true
+  // Navigator.pushNamed(context, RoutesName.home);
+  //Toasty.snackebar('message', context);
 
   @override
   Widget build(BuildContext context) {
@@ -118,14 +115,12 @@ class _LoginState extends State<Login> {
                 SizedBox(height: hight * .04),
                 RoundButton(
                   title: 'Login',
-                  loading: false,
+                  //loading: false,
                   onPress: () {
                     if (formkey.currentState!.validate()) {
-                      // login();
-
                       Map data = {
-                        'email': emailController.text.toString(),
-                        'password': passwordController.text.toString(),
+                        'email': emailController.text.toString().trim(),
+                        'password': passwordController.text.toString().trim(),
                       };
                       authViewModel.loginApi(data, context);
                     }

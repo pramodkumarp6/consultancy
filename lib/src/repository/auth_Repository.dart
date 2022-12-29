@@ -1,4 +1,5 @@
-import '../api/BaseApiServicei.dart';
+import 'package:consultancy/src/api/BaseApiServicei.dart';
+
 import '../api/NetworkApiService.dart';
 import '../utils/app_url.dart';
 
@@ -9,9 +10,10 @@ class AuthRepository {
     try {
       dynamic responce =
           await apiService.getPostApiResponse(AppUrl.login, data);
-      print(responce.toString() + "repository");
+      print(responce.toString() + 'response');
+      return responce;
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 

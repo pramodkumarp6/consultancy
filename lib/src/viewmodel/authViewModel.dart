@@ -7,15 +7,25 @@ import 'package:flutter/foundation.dart';
 
 class AuthViewModel with ChangeNotifier {
   final repository = AuthRepository();
+  bool _loading = false;
+  bool get loading => _loading;
+
+  setLoading(bool value) {
+    _loading = value;
+    notifyListeners();
+  }
 
   Future<void> loginApi(dynamic data, BuildContext context) async {
+    setLoading(true);
     repository.loginApi(data).then((value) {
       if (kDebugMode) {
-        print(data.value.toString() + "Pramod");
+        print(data.toString() + "ViewModel");
+        Toasty.snackebar("Login successfully !!!", context);
       }
     }).onError((error, stackTrace) {
+      setLoading(false);
       if (kDebugMode) {
-        print(error.toString() + "Pramod Error");
+        print(error.toString());
         Toasty.snackebar(error.toString(), context);
       }
     });

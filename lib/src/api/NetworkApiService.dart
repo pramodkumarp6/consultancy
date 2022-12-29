@@ -3,7 +3,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-
 import 'package:http/http.dart' as http;
 
 import 'BaseApiServicei.dart';
@@ -17,7 +16,7 @@ class NetworkApiService extends BaseApiService {
       final response =
           await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
     } on SocketException {
-      throw FetchDataException("InterNet Exception");
+      throw FetchDataException(' No InterNet Exception');
     }
     return responseJson;
   }
@@ -26,10 +25,11 @@ class NetworkApiService extends BaseApiService {
   Future getPostApiResponse(String url, dynamic data) async {
     dynamic responseJson;
     try {
-      final response =
-          await http.post(Uri.parse(url)).timeout(const Duration(seconds: 10));
+      final response = await http
+          .post(Uri.parse(url), body: data)
+          .timeout(const Duration(seconds: 10));
     } on SocketException {
-      throw FetchDataException("InterNet Exception");
+      throw FetchDataException(" No InterNet Exception");
     }
     return responseJson;
   }
