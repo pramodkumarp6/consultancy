@@ -2,8 +2,10 @@ import 'package:consultancy/src/res/components/inputText.dart';
 import 'package:consultancy/src/res/components/roundButton.dart';
 import 'package:consultancy/src/utils/toasty.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../utils/routes/routes_names.dart';
+import '../../viewmodel/authViewModel.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -31,18 +33,17 @@ class _LoginState extends State<Login> {
 
   void login() {
     // loading = true
-    Navigator.pushNamed(context, RoutesName.home);
+    // Navigator.pushNamed(context, RoutesName.home);
+    //Toasty.snackebar('message', context);
   }
 
   @override
   Widget build(BuildContext context) {
-    // final authViewModel = Provider.of<AuthViewModel>(context);
+    final authViewModel = Provider.of<AuthViewModel>(context);
     final hight = MediaQuery.of(context).size.height * 1;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
-        backgroundColor: Colors.purple,
-        centerTitle: false,
       ),
       body: SafeArea(
         child: Padding(
@@ -120,10 +121,18 @@ class _LoginState extends State<Login> {
                   loading: false,
                   onPress: () {
                     if (formkey.currentState!.validate()) {
-                      login();
+                      // login();
+
+                      Map data = {
+                        'email': emailController.text.toString(),
+                        'password': passwordController.text.toString(),
+                      };
+                      authViewModel.loginApi(data, context);
                     }
 
-                    Toasty.toastMessage('Email & Password InvaLid');
+                    //Toasty.fl("meassage", context);
+
+                    //Toasty.toastMessage('Email & Password InvaLid');
                   },
                 ),
                 SizedBox(height: hight * .03),

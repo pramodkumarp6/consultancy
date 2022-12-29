@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../res/components/roundButton.dart';
 import '../../utils/routes/routes_names.dart';
-import '../../utils/toasty.dart';
 
 class Complete extends StatefulWidget {
   const Complete({Key? key}) : super(key: key);
