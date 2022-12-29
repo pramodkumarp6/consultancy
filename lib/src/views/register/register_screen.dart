@@ -1,4 +1,6 @@
+import 'package:consultancy/src/viewmodel/authViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../res/components/inputText.dart';
 import '../../res/components/roundButton.dart';
@@ -44,6 +46,8 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
+
     final hight = MediaQuery.of(context).size.height * 1;
     return Scaffold(
       appBar: AppBar(
@@ -152,7 +156,13 @@ class _RegisterState extends State<Register> {
                   loading: false,
                   onPress: () {
                     if (formkey.currentState!.validate()) {
-                      register();
+                      Map data = {
+                        'email': emailController.text.toString(),
+                        'password': passwordController.text.toString(),
+                        'name': nameController.text.toString(),
+                        'address': addressController.text.toString()
+                      };
+                      authViewModel.sigup(data, context);
                     }
 
                     Toasty.toastMessage('Email & Password InvaLid');

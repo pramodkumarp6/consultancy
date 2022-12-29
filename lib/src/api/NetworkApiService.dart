@@ -1,23 +1,24 @@
-// ignore_for_file: unused_local_variable
-
 import 'dart:convert';
 import 'dart:io';
+import 'package:consultancy/src/api/BaseApiServicei.dart';
+import 'package:http/http.dart';
 
 import 'package:http/http.dart' as http;
 
-import 'BaseApiServicei.dart';
 import 'app_eception.dart';
 
-class NetworkApiService extends BaseApiService {
+class NetworkApiService extends BaseApiServices {
   @override
   Future getGetApiResponse(String url) async {
     dynamic responseJson;
     try {
       final response =
           await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
+      responseJson = returnResponse(response);
     } on SocketException {
-      throw FetchDataException(' No InterNet Exception');
+      throw FetchDataException('No Internet Connection');
     }
+
     return responseJson;
   }
 
@@ -25,12 +26,18 @@ class NetworkApiService extends BaseApiService {
   Future getPostApiResponse(String url, dynamic data) async {
     dynamic responseJson;
     try {
-      final response = await http
-          .post(Uri.parse(url), body: data)
+      Response response = await post(
+              Uri.parse(
+                url,
+              ),
+              body: data)
           .timeout(const Duration(seconds: 10));
+
+      responseJson = returnResponse(response);
     } on SocketException {
-      throw FetchDataException(" No InterNet Exception");
+      throw FetchDataException('No Internet Connection');
     }
+
     return responseJson;
   }
 
@@ -38,16 +45,19 @@ class NetworkApiService extends BaseApiService {
     switch (response.statusCode) {
       case 200:
         dynamic responseJson = jsonDecode(response.body);
-        return responseJson;
 
+        return responseJson;
       case 400:
-        dynamic responseJson = jsonDecode(response.body);
-        return responseJson;
+        throw BadRequestException(response.body.toString());
+
+      case 500:
       case 404:
-        dynamic responseJson = jsonDecode(response.body);
-        return responseJson;
+        throw UnauthorisedException(response.body.toString());
       default:
-        throw FetchDataException('Error' + response.statusCode.toString());
+        throw FetchDataException(
+            'Error accured while communicating with server' +
+                'with status code' +
+                response.statusCode.toString());
     }
   }
 }

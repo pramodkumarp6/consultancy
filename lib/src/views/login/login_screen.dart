@@ -115,12 +115,12 @@ class _LoginState extends State<Login> {
                 SizedBox(height: hight * .04),
                 RoundButton(
                   title: 'Login',
-                  //loading: false,
+                  loading: false,
                   onPress: () {
                     if (formkey.currentState!.validate()) {
                       Map data = {
-                        'email': emailController.text.toString().trim(),
-                        'password': passwordController.text.toString().trim(),
+                        'email': 'pramodkumarp6@gmail.com',
+                        'password': 'pandey',
                       };
                       authViewModel.loginApi(data, context);
                     }

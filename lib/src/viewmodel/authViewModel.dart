@@ -20,13 +20,25 @@ class AuthViewModel with ChangeNotifier {
     repository.loginApi(data).then((value) {
       if (kDebugMode) {
         print(data.toString() + "ViewModel");
-        Toasty.snackebar("Login successfully !!!", context);
+        Toasty.snackebar(value.toString(), context);
       }
     }).onError((error, stackTrace) {
       setLoading(false);
       if (kDebugMode) {
         print(error.toString());
         Toasty.snackebar(error.toString(), context);
+      }
+    });
+  }
+
+  Future<void> sigup(Map data, BuildContext context) async {
+    repository.registerApi(data).then((value) {
+      if (kDebugMode) {
+        print(value.toString() + "ViewModel");
+      }
+    }).onError((error, stackTrace) {
+      if (kDebugMode) {
+        print(error.toString());
       }
     });
   }

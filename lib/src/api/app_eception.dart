@@ -1,8 +1,7 @@
 class AppException implements Exception {
   final _message;
   final _prefix;
-
-  AppException(this._message, this._prefix);
+  AppException([this._message, this._prefix]);
 
   @override
   String toString() {
@@ -16,14 +15,14 @@ class FetchDataException extends AppException {
 }
 
 class BadRequestException extends AppException {
-  BadRequestException([String? message]) : super(message, 'Invalid Request ');
+  BadRequestException([String? message]) : super(message, 'Invalid request');
 }
 
-class UnAuthrousedException extends AppException {
-  UnAuthrousedException([String? message])
-      : super(message, 'UnAuthrousedException');
+class UnauthorisedException extends AppException {
+  UnauthorisedException([String? message])
+      : super(message, 'Unauthorised request');
 }
 
-class InvaliException extends AppException {
-  InvaliException([String? message]) : super(message, 'Invalid Request ');
+class InvalidInputException extends AppException {
+  InvalidInputException([String? message]) : super(message, 'Invalid Inpit');
 }

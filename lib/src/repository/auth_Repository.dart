@@ -1,17 +1,23 @@
+import 'dart:convert';
+
 import 'package:consultancy/src/api/BaseApiServicei.dart';
+import 'package:flutter/foundation.dart';
+import 'package:http/http.dart';
 
 import '../api/NetworkApiService.dart';
 import '../utils/app_url.dart';
 
 class AuthRepository {
-  BaseApiService apiService = NetworkApiService();
+  final BaseApiServices _apiServices = NetworkApiService();
 
   Future<dynamic> loginApi(dynamic data) async {
     try {
-      dynamic responce =
-          await apiService.getPostApiResponse(AppUrl.login, data);
-      print(responce.toString() + 'response');
-      return responce;
+      dynamic response =
+          await _apiServices.getPostApiResponse(AppUrl.login, data);
+      if (kDebugMode) {
+        print(response.toString() + "AuthModelPramod");
+      }
+      return response;
     } catch (e) {
       rethrow;
     }
@@ -20,9 +26,10 @@ class AuthRepository {
   Future<dynamic> registerApi(dynamic data) async {
     try {
       dynamic responce =
-          await apiService.getPostApiResponse(AppUrl.register, data);
+          await _apiServices.getPostApiResponse(AppUrl.register, data);
+      return responce;
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 }
