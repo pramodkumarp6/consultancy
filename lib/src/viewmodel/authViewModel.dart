@@ -19,7 +19,7 @@ class AuthViewModel with ChangeNotifier {
     setLoading(true);
     repository.loginApi(data).then((value) {
       if (kDebugMode) {
-        print(data.toString() + "ViewModel");
+        print(value.toString() + "ViewModel");
         Toasty.snackebar(value.toString(), context);
       }
     }).onError((error, stackTrace) {

@@ -1,5 +1,6 @@
 import 'package:consultancy/src/res/components/inputText.dart';
 import 'package:consultancy/src/res/components/roundButton.dart';
+import 'package:consultancy/src/res/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -40,8 +41,17 @@ class _LoginState extends State<Login> {
     final hight = MediaQuery.of(context).size.height * 1;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
-      ),
+          backgroundColor: Colors.purple,
+          elevation: 0,
+          title: const Text(appbar),
+          leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              ),
+              tooltip: "Cancel and Return to List",
+              onPressed: () {}),
+          centerTitle: true),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -51,8 +61,11 @@ class _LoginState extends State<Login> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: hight * .01),
+
+                const Image(image: AssetImage('assets/images/profile.jpg')),
+
                 const Text(
-                  'Consultancy',
+                  apptext,
                   style: TextStyle(
                     fontSize: 25,
                     color: Colors.redAccent,
@@ -71,7 +84,7 @@ class _LoginState extends State<Login> {
                             onFieldSubmittedValue: (value) {},
                             enable: true,
                             keyBoardType: TextInputType.emailAddress,
-                            hint: 'Email',
+                            hint: email,
                             obscureText: false,
                             onValidator: (value) {
                               return value.isEmpty
@@ -84,7 +97,7 @@ class _LoginState extends State<Login> {
                             onFieldSubmittedValue: (value) {},
                             enable: true,
                             keyBoardType: TextInputType.visiblePassword,
-                            hint: 'Password',
+                            hint: password,
                             obscureText: true,
                             onValidator: (value) {
                               return value.isEmpty
@@ -104,9 +117,9 @@ class _LoginState extends State<Login> {
                   child: const Align(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      'ForgetUser',
+                      forgetuser,
                       style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 15,
                           decoration: TextDecoration.underline,
                           color: Colors.blue),
                     ),
@@ -114,15 +127,16 @@ class _LoginState extends State<Login> {
                 ),
                 SizedBox(height: hight * .04),
                 RoundButton(
-                  title: 'Login',
-                  loading: false,
+                  title: loginbutton,
+                  loading: authViewModel.loading,
                   onPress: () {
                     if (formkey.currentState!.validate()) {
                       Map data = {
-                        'email': 'pramodkumarp6@gmail.com',
-                        'password': 'pandey',
+                        'email': emailController.text.toString(),
+                        'password': passwordController.text.toString()
                       };
                       authViewModel.loginApi(data, context);
+                      Navigator.pushNamed(context, RoutesName.home);
                     }
 
                     //Toasty.fl("meassage", context);
@@ -138,13 +152,16 @@ class _LoginState extends State<Login> {
                   child: const Text.rich(
                     TextSpan(
                       text: 'Dont have an Account?',
+                      style: TextStyle(fontSize: 15),
                       children: [
                         TextSpan(
                             text: "SignUP",
                             style: TextStyle(
-                                fontFamily: 'normal',
-                                decoration: TextDecoration.underline,
-                                color: Colors.blue))
+                              fontSize: 15,
+                              fontFamily: 'normal',
+                              decoration: TextDecoration.underline,
+                              color: Colors.blue,
+                            ))
                       ],
                     ),
                   ),
