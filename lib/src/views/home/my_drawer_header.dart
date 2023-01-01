@@ -1,18 +1,15 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 
-class MyHeader extends StatefulWidget {
-  const MyHeader({Key? key}) : super(key: key);
-
+class MyHeaderDrawer extends StatefulWidget {
   @override
-  State<MyHeader> createState() => _MyHeaderState();
+  _MyHeaderDrawerState createState() => _MyHeaderDrawerState();
 }
 
-class _MyHeaderState extends State<MyHeader> {
+class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.purple,
+      color: Colors.green[700],
       width: double.infinity,
       height: 200,
       padding: const EdgeInsets.only(top: 20.0),
@@ -22,21 +19,22 @@ class _MyHeaderState extends State<MyHeader> {
           Container(
             margin: const EdgeInsets.only(bottom: 10),
             height: 70,
-            decoration: const BoxDecoration(
+            // ignore: prefer_const_constructors
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: AssetImage('assets/images/profile.jpg'),
               ),
             ),
           ),
           const Text(
-            "Consultancy",
+            "Pramod",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
-          const Text(
+          Text(
             "pramodkumarp6@gmail.com",
             style: TextStyle(
-              color: Colors.greenAccent,
+              color: Colors.grey[200],
               fontSize: 14,
             ),
           ),

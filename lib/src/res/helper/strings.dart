@@ -1,7 +1,7 @@
 class Strings {
   // static const String appName = "Boilerplate Project";
 
-  static const String apptext = " Consultancy";
+  static const String apptext = "Consultancy";
   static const String email = 'Email';
   static const String password = 'Password';
   static const String forgetuser = "ForgetUserAccount";

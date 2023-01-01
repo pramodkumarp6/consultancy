@@ -1,27 +1,31 @@
 import 'package:consultancy/src/res/components/inputText.dart';
 import 'package:consultancy/src/res/components/roundButton.dart';
+import 'package:consultancy/src/utils/toasty.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../res/helper/dimens.dart';
-import '../../res/helper/strings.dart';
-import '../../utils/routes/routes_names.dart';
-import '../../viewmodel/authViewModel.dart';
-
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class Profile extends StatefulWidget {
+  const Profile({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Profile> createState() => _ProfileState();
 }
 
-class _LoginState extends State<Login> {
+class _ProfileState extends State<Profile> {
   final formkey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final emailFocusNode = FocusNode();
 
   final passwordController = TextEditingController();
   final passwordFocusNode = FocusNode();
+
+  final nameController = TextEditingController();
+  final nameFocusNode = FocusNode();
+
+  final mobileController = TextEditingController();
+  final mobileFocusNode = FocusNode();
+
+  final addressController = TextEditingController();
+  final addressFocusNode = FocusNode();
 
   @override
   void dispose() {
@@ -32,43 +36,24 @@ class _LoginState extends State<Login> {
     passwordFocusNode.dispose();
   }
 
-  //loading = true
-  // Navigator.pushNamed(context, RoutesName.home);
-  //Toasty.snackebar('message', context);
-
   @override
   Widget build(BuildContext context) {
-    final authViewModel = Provider.of<AuthViewModel>(context);
     final hight = MediaQuery.of(context).size.height * 1;
+
+    // ignore: prefer_const_constructors
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.purple,
-          elevation: 0,
-          title: const Text(Strings.appbar),
-          leading: IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              ),
-              tooltip: "Cancel and Return to List",
-              onPressed: () {}),
-          centerTitle: true),
+      // ignore: prefer_const_constructors
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: Dimens.horizontal_padding,
-              vertical: Dimens.vertical_padding),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: hight * .01),
-
-                const Image(image: AssetImage('assets/images/profile.jpg')),
-
                 const Text(
-                  Strings.apptext,
+                  'Update Profile',
                   style: TextStyle(
                     fontSize: 25,
                     color: Colors.redAccent,
@@ -87,7 +72,7 @@ class _LoginState extends State<Login> {
                             onFieldSubmittedValue: (value) {},
                             enable: true,
                             keyBoardType: TextInputType.emailAddress,
-                            hint: Strings.email,
+                            hint: 'Email',
                             obscureText: false,
                             onValidator: (value) {
                               return value.isEmpty
@@ -100,11 +85,50 @@ class _LoginState extends State<Login> {
                             onFieldSubmittedValue: (value) {},
                             enable: true,
                             keyBoardType: TextInputType.visiblePassword,
-                            hint: Strings.password,
+                            hint: 'Password',
                             obscureText: true,
                             onValidator: (value) {
                               return value.isEmpty
                                   ? 'Enter Password Required'
+                                  : null;
+                            }),
+                        InputTextField(
+                            focusNode: nameFocusNode,
+                            myController: nameController,
+                            onFieldSubmittedValue: (value) {},
+                            enable: true,
+                            keyBoardType: TextInputType.name,
+                            hint: 'Name',
+                            obscureText: false,
+                            onValidator: (value) {
+                              return value.isEmpty
+                                  ? 'Enter Name Required'
+                                  : null;
+                            }),
+                        InputTextField(
+                            focusNode: mobileFocusNode,
+                            myController: mobileController,
+                            onFieldSubmittedValue: (value) {},
+                            enable: true,
+                            keyBoardType: TextInputType.phone,
+                            hint: 'Mobile',
+                            obscureText: false,
+                            onValidator: (value) {
+                              return value.isEmpty
+                                  ? 'Enter Mobile Required'
+                                  : null;
+                            }),
+                        InputTextField(
+                            focusNode: addressFocusNode,
+                            myController: addressController,
+                            onFieldSubmittedValue: (value) {},
+                            enable: true,
+                            keyBoardType: TextInputType.name,
+                            hint: 'Address',
+                            obscureText: false,
+                            onValidator: (value) {
+                              return value.isEmpty
+                                  ? 'Enter Address Required'
                                   : null;
                             }),
                       ],
@@ -113,61 +137,24 @@ class _LoginState extends State<Login> {
                 ),
 
                 // ignore: prefer_const_constructors
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, RoutesName.forgetUser);
-                  },
-                  child: const Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      Strings.forgetuser,
-                      style: TextStyle(
-                          fontSize: 15,
-                          decoration: TextDecoration.underline,
-                          color: Colors.blue),
-                    ),
-                  ),
-                ),
-                SizedBox(height: hight * .04),
+
+                SizedBox(height: hight * .01),
                 RoundButton(
-                  title: Strings.loginbutton,
-                  loading: authViewModel.loading,
+                  title: 'Update',
+                  loading: false,
                   onPress: () {
                     if (formkey.currentState!.validate()) {
                       Map data = {
                         'email': emailController.text.toString(),
-                        'password': passwordController.text.toString()
+                        'password': passwordController.text.toString(),
+                        'name': nameController.text.toString(),
+                        'address': addressController.text.toString()
                       };
-                      authViewModel.loginApi(data, context);
-                      Navigator.pushNamed(context, RoutesName.home);
+                      // authViewModel.sigup(data, context);
                     }
 
-                    //Toasty.fl("meassage", context);
-
-                    //Toasty.toastMessage('Email & Password InvaLid');
+                    Toasty.toastMessage('Email & Password InvaLid');
                   },
-                ),
-                SizedBox(height: hight * .03),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, RoutesName.register);
-                  },
-                  child: const Text.rich(
-                    TextSpan(
-                      text: 'Dont have an Account?',
-                      style: TextStyle(fontSize: 15),
-                      children: [
-                        TextSpan(
-                            text: "SignUP",
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontFamily: 'normal',
-                              decoration: TextDecoration.underline,
-                              color: Colors.blue,
-                            ))
-                      ],
-                    ),
-                  ),
                 ),
               ],
             ),

@@ -1,6 +1,6 @@
+// ignore: file_names
+import 'package:consultancy/src/res/helper/color.dart';
 import 'package:flutter/material.dart';
-
-import '../color.dart';
 
 class RoundButton extends StatelessWidget {
   final String title;
