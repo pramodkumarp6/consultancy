@@ -11,4 +11,5 @@ class RoutesName {
   static const String complete = 'complete_screen';
   // ignore: constant_identifier_names
   static const String userdetails = 'userDetails_screen.dart';
+  static const String changepassword = 'passwordChange';
 }

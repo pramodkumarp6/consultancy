@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import '../../views/home/home_screen.dart';
 import '../../views/home/notification/notifications.dart';
 import '../../views/home/setting/settings.dart';
+import '../../views/home/userPasswprdChange/passwordChange.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -54,6 +55,10 @@ class Routes {
       case RoutesName.setting:
         return MaterialPageRoute(
             builder: (BuildContext context) => const SettingsScreen());
+
+      case RoutesName.changepassword:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const PasswordChange());
 
       default:
         return MaterialPageRoute(builder: (_) {

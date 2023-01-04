@@ -23,7 +23,19 @@ class _ForgetUserState extends State<ForgetUser> {
 
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.purple, title: const Text('ForgetUser')),
+          backgroundColor: Colors.purple,
+          elevation: 0,
+          title: const Text('ForgetUser'),
+          leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              ),
+              tooltip: "Cancel and Return to List",
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.login);
+              }),
+          centerTitle: true),
 
       body: SafeArea(
         child: Padding(

@@ -51,10 +51,20 @@ class _RegisterState extends State<Register> {
     final hight = MediaQuery.of(context).size.height * 1;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
-        title: const Text('Register'),
-        centerTitle: false,
-      ),
+          backgroundColor: Colors.purple,
+          elevation: 0,
+          title: const Text('Register'),
+          leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              ),
+              tooltip: "Cancel and Return to List",
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.login);
+              }),
+          centerTitle: true),
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

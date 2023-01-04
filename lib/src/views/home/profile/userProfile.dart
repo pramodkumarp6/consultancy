@@ -144,6 +144,7 @@ class _ProfileState extends State<Profile> {
                   loading: false,
                   onPress: () {
                     if (formkey.currentState!.validate()) {
+                      emailController.text = "Pramodkumarp6@gmail.com";
                       Map data = {
                         'email': emailController.text.toString(),
                         'password': passwordController.text.toString(),

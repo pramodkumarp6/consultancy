@@ -26,10 +26,19 @@ class _PasswordUpdateState extends State<PasswordUpdate> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PasswordUpdate'),
-        backgroundColor: Colors.purple,
-        centerTitle: false,
-      ),
+          backgroundColor: Colors.purple,
+          elevation: 0,
+          title: const Text('Password Update'),
+          leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              ),
+              tooltip: "Cancel and Return to List",
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.login);
+              }),
+          centerTitle: true),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
