@@ -115,18 +115,6 @@ class _PasswordChangeState extends State<PasswordChange> {
           ),
         ),
       ),
-      // body: Center(
-      //   child: InkWell(
-      //     onTap: () {
-
-      //       Toasty.toastMessage('Login Success');
-      //     },
-      //     child: const Text(
-      //       'Hello World',
-      //       style: TextStyle(color: Colors.red),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }
