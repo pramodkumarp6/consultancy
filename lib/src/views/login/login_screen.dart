@@ -65,7 +65,7 @@ class _LoginState extends State<Login> {
               children: [
                 SizedBox(height: hight * .01),
 
-                const Image(image: AssetImage('assets/images/profile.jpg')),
+                const Image(image: AssetImage('assets/images/spl.png')),
 
                 const Text(
                   Strings.apptext,
