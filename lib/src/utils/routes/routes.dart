@@ -7,9 +7,11 @@ import 'package:consultancy/src/views/forgetuser/otp_send_verify.dart';
 import 'package:consultancy/src/views/forgetuser/password_update_screen.dart';
 import 'package:consultancy/src/views/login/login_screen.dart';
 import 'package:consultancy/src/views/register/register_screen.dart';
+import 'package:consultancy/src/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../views/home/home_screen.dart';
+import '../../views/home/location/location.dart';
 import '../../views/home/notification/notifications.dart';
 import '../../views/home/setting/settings.dart';
 import '../../views/home/userPasswprdChange/passwordChange.dart';
@@ -59,6 +61,14 @@ class Routes {
       case RoutesName.changepassword:
         return MaterialPageRoute(
             builder: (BuildContext context) => const PasswordChange());
+
+      case RoutesName.location:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const Location());
+
+      case RoutesName.splash:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const SplashScreen());
 
       default:
         return MaterialPageRoute(builder: (_) {

@@ -2,7 +2,9 @@ class RoutesName {
   //static const String splash = 'splash_screen';
   static const String login = 'login_screen';
   static const String home = 'home_screen';
-  static const String register = 'splash_screen';
+  static const String register = 'register_screen';
+
+  static const String splash = 'splash_screen';
   static const String setting = 'settings';
   static const String notification = 'notification';
   static const String forgetUser = 'forgetUser_screen';
@@ -12,4 +14,5 @@ class RoutesName {
   // ignore: constant_identifier_names
   static const String userdetails = 'userDetails_screen.dart';
   static const String changepassword = 'passwordChange';
+  static const String location = 'location';
 }
